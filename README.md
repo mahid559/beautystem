@@ -1,56 +1,52 @@
-# Beauty In Stem — Korean Skincare (1:1 Replica)
+# Beauty In Stem — Next.js, Tailwind CSS & Framer Motion Storefront
 
-A complete, high-fidelity replica of the award-winning **Beauty In Stem** ([stembeauty.com](https://stembeauty.com/)) website. Engineered with Korean skin fitness branding, fluid GSAP scroll interactions, Three.js interactive 3D WebGL sphere animations, and a fully functional shopping cart drawer.
+A luxury, high-fidelity e-commerce web application for **Beauty In Stem** ([stembeauty.com](https://stembeauty.com/)). Completely converted and engineered with **Next.js 14 (App Router)**, **Tailwind CSS v3.4**, **Framer Motion**, **TypeScript**, and **Three.js** interactive 3D bio-cellular simulations.
 
 ---
 
-## 🌟 Key Highlights & Included Features
+## 🌟 Tech Stack & Architectural Highlights
 
-1. **Exact 1:1 Design & Editorial Aesthetics**:
-   - Original typography: **Degular Demo** & **Metropolis** fonts loaded locally (`.woff2`).
-   - Signature brand palette: warm taupe, blush pink (`#D08C81`, `#E8C5C1`), deep charcoal espresso (`#331b0f`), off-white pearl background (`#F5F2F0`).
-   - High-definition cinematic background video in the hero section.
+1. **Next.js 14 (App Router & React Server Components)**:
+   - Full TypeScript architecture with SSG (Static Site Generation) across all routes.
+   - Dynamic product routes with SEO OpenGraph metadata generation: `/products/[slug]`.
+   - Client Component boundaries for interactive micro-animations and cart drawer.
 
-2. **Interactive 3D WebGL Spheres (Three.js)**:
-   - Bio-cellular PDRN spherical metaball simulation with custom Fresnel refraction, specular highlights, and real-time HDRI environment reflections.
-   - Mouse-tracking interactive movement and scroll-driven morphing.
+2. **Tailwind CSS v3 (v3.4)**:
+   - Custom curated luxury color palette: `stem-espresso` (`#331b0f`), `stem-taupe` (`#d08c81`), `stem-blush` (`#e8c5c1`), `stem-pearl` (`#f5f2f0`), and `stem-surface` (`#f7f5f3`).
+   - Authentic typographic pairings: **Degular Demo** & **Metropolis** fonts loaded locally.
+   - Glassmorphism navigation bar (`backdrop-blur-md`).
 
-3. **Sticky 4 Essential Steps Regimen**:
-   - Pinned 3D cellular animation that travels across the 4 skin fitness steps as you scroll:
-     1. **Cleanse** — Hydra-Foam Cleanser
-     2. **Activate** — Reset Serum
-     3. **Recovery** — Hydra-Nutrition Essence
-     4. **Maintain** — Eye & Lash Conditioner
+3. **Framer Motion**:
+   - Slide-in shopping cart drawer with spring physics and backdrop blur.
+   - Micro-interaction character stagger hovers and page transitions.
+   - Interactive 4-step regimen switcher and tab animations.
+   - Confetti checkout celebration.
 
-4. **Working Shopping Cart Drawer**:
-   - Slide-in cart sidebar with overlay backdrop.
-   - Live counter badge (`SHOPPING CART ( n )`).
-   - In-memory & `localStorage` persistence.
-   - One-click upsells ("You May Also Like" carousel).
-   - Dynamic subtotal and price recalculation.
+4. **Three.js Interactive 3D Bio-Cellular WebGL Canvas**:
+   - Translucent glassmorphic PDRN cellular spheres with real-time mouse interaction, orbital satellite motion, and specular reflections.
 
-5. **Multi-Page Storefront Architecture**:
-   - `index.html` — Homepage
-   - `science.html` — The Science of Skin Fitness
-   - `us.html` — About Us
-   - `shop.html` — Full Catalog Showcase
-   - `products/` — Individual dedicated product pages for each item
+5. **Functional Cart Engine with LocalStorage Persistence**:
+   - Dynamic live badge count in header.
+   - Increment, decrement, and item removal.
+   - Free shipping calculation with real-time progress bar.
+   - One-click regimen upsell recommendations.
+   - Promo code validation (`STEM10` for 10% off).
 
 ---
 
 ## 🚀 How to Run Locally
 
-### Option 1: Using Node.js Dev Server (Already Running)
+### Start Development Server
 ```bash
 npm run dev
-# or
+```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+
+### Build Production Bundle
+```bash
+npm run build
 npm start
 ```
-Then open your browser at:
-👉 **[http://localhost:3000/](http://localhost:3000/)**
-
-### Option 2: Direct Browser Viewing
-You can open [index.html](file:///e:/e%20commerce/beautystem/index.html) directly in any modern browser (Chrome, Edge, Firefox, Safari).
 
 ---
 
@@ -58,26 +54,32 @@ You can open [index.html](file:///e:/e%20commerce/beautystem/index.html) directl
 
 ```
 beautystem/
-├── assets/
-│   ├── css/
-│   │   └── app.css             # Main styling, responsive layout, animations
-│   ├── fonts/                  # Metropolis & Degular Demo font files
-│   ├── images/                 # HDRI maps, SVG icons, background vectors, logos
-│   ├── js/
-│   │   ├── vendors.js          # Three.js, GSAP, ScrollTrigger, Lenis smooth scroll
-│   │   ├── app.js              # 3D sphere shaders, animations, interactive logic
-│   │   └── mock-cart.js        # Client-side shopping cart engine
-│   └── products/               # High-res product photography & gallery images
-├── products/
-│   ├── hydra-foam-cleanser.html
-│   ├── reset-serum.html
-│   ├── lash-and-eye-conditioner.html
-│   └── hydra-nutrition-essence.html
-├── index.html                  # Homepage (1:1 replica of stembeauty.com)
-├── science.html                # Science page
-├── us.html                     # About Us page
-├── shop.html                   # Shop / Catalog page
-├── server.js                   # Lightweight zero-dependency HTTP server
-├── package.json                # Project scripts
-└── README.md
+├── public/
+│   └── assets/             # HDRI maps, SVG icons, product photography & fonts
+├── src/
+│   ├── app/
+│   │   ├── globals.css     # Tailwind CSS v3 base, components, and font faces
+│   │   ├── layout.tsx      # RootLayout with CartProvider, Header, Footer
+│   │   ├── page.tsx        # Homepage (Cinematic video hero, 3D Canvas, Regimen)
+│   │   ├── science/        # The Science of PDRN Skin Fitness
+│   │   ├── us/             # About Us & Heritage
+│   │   ├── shop/           # Complete Catalog with category filtering & sorting
+│   │   └── products/[slug]/# Dynamic Product Detail pages (SSG + metadata)
+│   ├── components/
+│   │   ├── Header.tsx      # Desktop & Mobile glassmorphic navigation
+│   │   ├── Footer.tsx      # Newsletter, links, social & trademark
+│   │   ├── CartDrawer.tsx  # Framer Motion slide-over cart drawer
+│   │   ├── ProductView.tsx # Product detail interactive view
+│   │   └── Spheres3D.tsx   # Three.js 3D bio-cellular canvas
+│   ├── context/
+│   │   └── CartContext.tsx # React Context with localStorage sync
+│   ├── data/
+│   │   └── products.ts     # Complete product catalog dataset
+│   └── types/
+│       └── index.ts        # TypeScript interfaces
+├── tailwind.config.js      # Tailwind CSS v3 theme configuration
+├── postcss.config.js       # PostCSS plugins
+├── tsconfig.json           # TypeScript configuration
+├── next.config.mjs         # Next.js configuration
+└── package.json            # Scripts & dependencies
 ```
