@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,27 +20,9 @@ module.exports = {
           dark: "#202020",
           muted: "#4b4b4b",
           border: "#e8e4e1",
-          surface: "#f7f5f3"
-        }
-      },
-      fontFamily: {
-        metropolis: ["var(--font-metropolis)", "Metropolis", "sans-serif"],
-        degular: ["var(--font-degular)", "Degular Demo", "sans-serif"],
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          surface: "#f7f5f3",
         },
-        pulseSlow: {
-          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-          '50%': { opacity: '0.8', transform: 'scale(1.05)' },
-        }
       },
-      animation: {
-        float: 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
-      }
     },
   },
   plugins: [],

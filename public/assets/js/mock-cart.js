@@ -10,8 +10,8 @@
       price: 3500,
       presentment_price: 35.00,
       variant_title: "150ml / 5.1 fl oz",
-      image: (assetPrefix + "assets/products/cleanser-1.jpg").replace('//', '/'),
-      url: isSubdir ? "hydra-foam-cleanser.html" : "products/hydra-foam-cleanser.html"
+      image: "/assets/products/cleanser-1.jpg",
+      url: "/products/hydra-foam-cleanser"
     },
     "52708175642963": {
       id: 52708175642963,
@@ -20,8 +20,8 @@
       price: 7500,
       presentment_price: 75.00,
       variant_title: "30ml / 1.0 fl oz",
-      image: (assetPrefix + "assets/products/serum-1.jpg").replace('//', '/'),
-      url: isSubdir ? "reset-serum.html" : "products/reset-serum.html"
+      image: "/assets/products/serum-1.jpg",
+      url: "/products/reset-serum"
     },
     "52696490180947": {
       id: 52696490180947,
@@ -30,8 +30,8 @@
       price: 6500,
       presentment_price: 65.00,
       variant_title: "15ml / 0.5 fl oz",
-      image: (assetPrefix + "assets/products/eye-1.jpg").replace('//', '/'),
-      url: isSubdir ? "lash-and-eye-conditioner.html" : "products/lash-and-eye-conditioner.html"
+      image: "/assets/products/eye-1.jpg",
+      url: "/products/lash-and-eye-conditioner"
     },
     "52708176101715": {
       id: 52708176101715,
@@ -40,8 +40,8 @@
       price: 6500,
       presentment_price: 65.00,
       variant_title: "100ml / 3.4 fl oz",
-      image: (assetPrefix + "assets/products/essence-1.jpg").replace('//', '/'),
-      url: isSubdir ? "hydra-nutrition-essence.html" : "products/hydra-nutrition-essence.html"
+      image: "/assets/products/essence-1.jpg",
+      url: "/products/hydra-nutrition-essence"
     },
     "53279358419283": {
       id: 53279358419283,
@@ -50,8 +50,8 @@
       price: 22500,
       presentment_price: 225.00,
       variant_title: "Complete 4-Step System",
-      image: (assetPrefix + "assets/products/collection-1.jpg").replace('//', '/'),
-      url: isSubdir ? "skin-fitness-collection.html" : "products/skin-fitness-collection.html"
+      image: "/assets/products/collection-1.jpg",
+      url: "/products/skin-fitness-collection"
     }
   };
 

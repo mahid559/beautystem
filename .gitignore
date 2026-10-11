@@ -8,3 +8,5 @@ Thumbs.db
 .env.local
 .vscode/
 .idea/
+scratch/
+*.tsbuildinfo

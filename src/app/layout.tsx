@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
-import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
+import CartSidebar from "@/components/CartSidebar";
+import GeoPopup from "@/components/GeoPopup";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stembeauty.com"),
-  title: "Beauty In Stem — Korean Skincare & Bio-Cellular Skin Fitness",
+  title: "Beauty In Stem — Korean Skincare",
   description:
-    "Award-winning Korean skincare formulas engineered for ultimate skin fitness. Advanced salmon DNA PDRN bio-science developed in collaboration with leading Seoul dermatological scientists.",
+    "Korean skincare formulas engineered for ultimate skin fitness. Advanced PDRN science developed in collaboration with Korean skin scientists.",
   keywords: [
     "Korean Skincare",
     "PDRN",
     "Salmon DNA",
     "Skin Fitness",
     "Beauty In Stem",
-    "Luxury Skincare",
     "Hydra-Foam Cleanser",
     "Reset Serum",
+    "Lash and Eye Conditioner",
+    "Hydra-Nutrition Essence"
   ],
   openGraph: {
     title: "Beauty In Stem — Korean Skincare",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
         url: "/assets/images/about-top.jpg",
         width: 1200,
         height: 630,
-        alt: "Beauty In Stem Luxury Skincare",
+        alt: "Beauty In Stem",
       },
     ],
     locale: "en_US",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Beauty In Stem — Korean Skincare",
     description:
-      "Korean skincare formulas engineered for ultimate skin fitness.",
+      "Korean skincare formulas engineered for ultimate skin fitness. Advanced PDRN science developed in collaboration with Korean skin scientists.",
     images: ["/assets/images/about-top.jpg"],
   },
   icons: {
@@ -57,13 +58,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-stem-pearl text-stem-dark antialiased selection:bg-stem-taupe selection:text-white">
-        <CartProvider>
-          <Header />
-          <CartDrawer />
-          <main className="flex-1 pt-20">{children}</main>
-          <Footer />
-        </CartProvider>
+      <head>
+        <link rel="shortcut icon" href="/assets/images/favicon.png" />
+        <link href="/assets/css/app.css" rel="stylesheet" type="text/css" media="all" />
+      </head>
+      <body>
+        <Header />
+        {children}
+        <CartSidebar />
+        <GeoPopup />
+
+        <div className="page-transition">
+          <div className="pt-panel pt-panel--1"></div>
+          <div className="pt-panel pt-panel--2"></div>
+        </div>
+
+        <Script id="shopify-vars" strategy="beforeInteractive">
+          {`
+            window.shopifyAssetsUrl = "/assets/images/";
+            window.Shopify = window.Shopify || {};
+            window.Shopify.currency = { active: "USD" };
+            window.Shopify.moneyFormat = "$\{{amount}}";
+          `}
+        </Script>
+        <Script src="/assets/js/vendors.js" strategy="afterInteractive" />
+        <Script src="/assets/js/mock-cart.js" strategy="afterInteractive" />
+        <Script src="/assets/js/app.js" strategy="afterInteractive" />
       </body>
     </html>
   );
