@@ -1,0 +1,21 @@
+{
+  "name": "beauty-in-stem",
+  "version": "1.0.0",
+  "description": "Beauty In Stem (stembeauty.com) - Luxury Korean Skincare E-Commerce Storefront",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build_pages.js"
+  },
+  "keywords": [
+    "beauty",
+    "skincare",
+    "stembeauty",
+    "korean-skincare",
+    "threejs",
+    "pdrn"
+  ],
+  "author": "",
+  "license": "ISC"
+}
